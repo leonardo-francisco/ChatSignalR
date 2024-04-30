@@ -1,0 +1,91 @@
+﻿@{
+    ViewData["Title"] = "Hot Talk Chat Baby! Go for broke!";
+}
+
+@section Styles {
+    <style>
+        ul {
+            margin: 0;
+        }
+
+        ul li {
+            padding: 0;
+            list-style-type: none;
+        }
+
+        #messages {
+            margin-top: 10px;
+        }
+
+        #messages li {
+            background-color: #EEE;
+            border-radius: 3px;
+            min-height: 40px;
+            line-height: 40px;
+            padding-left: 7px;
+            padding-right: 7px;
+            margin-bottom: 1px;
+        }
+
+        #users li {
+            border: 1px solid #EEE;
+            padding: 4px;
+            border-radius: 3px;
+            margin-bottom: 1px;
+            cursor: pointer;
+        }
+
+        .connected-users {
+            border: 1px solid green;
+            padding: 10px;
+        }
+
+        .privateChatUser {
+            background-color: #3A87AD;
+        }
+
+        .privateMessage{
+            background-color:red;
+            color: white;
+        }
+
+    </style>
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="alert alert-success">
+    Olá @User.Identity.Name! Comece a conversar...
+</div>
+
+<div id="privateChatInfo" class="alert alert-info" style="display: none;">
+    Você está em uma conversa privada com <span id="privateChatUser"></span>! <a href="#" id="exitPrivateChat">Sair da conversa privada?</a>
+</div>
+
+<div class="row">
+    <div class="col-8 form-search">
+        <input type="text" id="txtMsg" class="form-control" disabled />
+        <button type="button" id="btnSend" class="btn btn-info" disabled>Enviar</button>
+        <ul id="messages">
+            <!-- As mensagens serão adicionadas aqui via JavaScript -->
+        </ul>
+    </div>
+
+    <div id="users" class="col-4">
+        <div class="connected-users">
+            <p>Usuarios Conectados</p>
+            <ul>
+                <!-- A lista de usuários será atualizada aqui via JavaScript -->
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="~/js/knockout-2.2.0.debug.js"></script>
+    <script src="~/js/site.js"></script>
+}
