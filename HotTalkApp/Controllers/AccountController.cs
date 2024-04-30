@@ -23,15 +23,14 @@ namespace HotTalkApp.Controllers
             {
                 var claims = new[] {
                 new Claim(ClaimTypes.Name, loginModel.Name),
-                // Adicione outros claims conforme necessário
+                
             };
 
                 var claimsIdentity = new ClaimsIdentity(
                     claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
                 var authProperties = new AuthenticationProperties
-                {
-                    // Personalize as propriedades de autenticação conforme necessário
+                {                   
                     IsPersistent = true,
                     ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(20) // Exemplo de expiração do cookie
                 };
