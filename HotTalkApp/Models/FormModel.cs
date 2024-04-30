@@ -4,7 +4,7 @@ namespace HotTalkApp.Models
 {
     public class FormModel
     {
-        [Required]
+        [Required(ErrorMessage = "Por favor, forneça um nome.")]
         public string Name { get; set; }
     }
 }
